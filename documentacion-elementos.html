@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación — Elementos y Componentes Gráficos e Interactivos | VitalityHealth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* =============================================
+           ESTILOS BASE DEL DOCUMENTO
+        ============================================= */
+        :root {
+            --fucsia:   #97336F;
+            --burdeos:  #471834;
+            --naranja:  #E0994E;
+            --negro:    #0d0d0d;
+            --blanco:   #ffffff;
+            --gris-claro: #f5f5f5;
+            --gris-medio: #e0e0e0;
+            --gris-texto: #444;
+            --code-bg:  #1e1e2e;
+            --code-texto: #cdd6f4;
+            --gradiente: linear-gradient(160deg, #471834 0%, #97336F 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+            background-color: #f0f0f0;
+            color: var(--gris-texto);
+            line-height: 1.7;
+        }
+
+        /* =============================================
+           PORTADA
+        ============================================= */
+        .portada {
+            background: var(--gradiente);
+            color: white;
+            padding: 70px 40px;
+            text-align: center;
+        }
+        .portada-logo {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            border: 3px solid rgba(255,255,255,0.4);
+        }
+        .portada h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .portada h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.85;
+            margin-bottom: 30px;
+        }
+        .portada-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.25);
+        }
+        .portada-meta-item { text-align: center; }
+        .portada-meta-item .label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+        .portada-meta-item .value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* =============================================
+           ÍNDICE
+        ============================================= */
+        .indice {
+            background: white;
+            padding: 40px;
+            border-bottom: 3px solid var(--gris-medio);
+        }
+        .indice h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--fucsia);
+            margin-bottom: 20px;
+        }
+        .indice-lista {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            list-style: none;
+        }
+        .indice-lista a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--gris-texto);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            border-left: 3px solid var(--gris-medio);
+        }
+        .indice-lista a:hover {
+            background: var(--gris-claro);
+            border-left-color: var(--fucsia);
+            color: var(--fucsia);
+        }
+        .indice-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 900;
+            color: var(--naranja);
+            min-width: 20px;
+        }
+
+        /* =============================================
+           CONTENEDOR PRINCIPAL
+        ============================================= */
+        .contenido {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* =============================================
+           TARJETA DE COMPONENTE
+        ============================================= */
+        .componente {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            margin-bottom: 40px;
+            overflow: hidden;
+            border: 1px solid var(--gris-medio);
+        }
+
+        .componente-header {
+            background: var(--gradiente);
+            color: white;
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .componente-num {
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .componente-titulo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .componente-subtitulo {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+
+        .componente-cuerpo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /* Panel izquierdo: explicación */
+        .panel-explicacion {
+            padding: 28px;
+            border-right: 1px solid var(--gris-medio);
+        }
+        .panel-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--fucsia);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .panel-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--gris-medio);
+        }
+        .panel-explicacion p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.75;
+            margin-bottom: 14px;
+        }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 14px;
+        }
+        .tag {
+            background: var(--gris-claro);
+            border: 1px solid var(--gris-medio);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #666;
+        }
+        .tag.tag-html { border-color: #e44d26; color: #e44d26; background: #fff5f3; }
+        .tag.tag-css  { border-color: #264de4; color: #264de4; background: #f3f5ff; }
+        .tag.tag-js   { border-color: #f7df1e; color: #9a8600; background: #fffef0; }
+
+        /* Panel derecho: código */
+        .panel-codigo {
+            background: var(--code-bg);
+            padding: 0;
+            overflow: hidden;
+        }
+        .codigo-tab {
+            background: #181825;
+            padding: 8px 20px;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            border-bottom: 1px solid #313244;
+        }
+        .codigo-tab span {
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: #6c7086;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-r { background: #f38ba8; }
+        .dot-y { background: #f9e2af; }
+        .dot-g { background: #a6e3a1; }
+
+        pre {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            line-height: 1.7;
+            color: var(--code-texto);
+            padding: 20px;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        /* Colores de sintaxis manuales */
+        .c-selector { color: #89b4fa; }
+        .c-propiedad { color: #cba6f7; }
+        .c-valor { color: #a6e3a1; }
+        .c-string { color: #f9e2af; }
+        .c-numero { color: #fab387; }
+        .c-comentario { color: #585b70; font-style: italic; }
+        .c-keyword { color: #f38ba8; }
+        .c-funcion { color: #89dceb; }
+        .c-tag { color: #f38ba8; }
+        .c-attr { color: #fab387; }
+        .c-attrval { color: #a6e3a1; }
+
+        /* =============================================
+           PANEL DEMO (ancho completo)
+        ============================================= */
+        .panel-demo {
+            border-top: 1px solid var(--gris-medio);
+            padding: 24px 28px;
+            background: #fafafa;
+        }
+        .panel-demo .panel-label { margin-bottom: 18px; }
+
+        /* =============================================
+           COMPONENTE ANCHO COMPLETO (solo explicación + código stacked)
+        ============================================= */
+        .componente-cuerpo.full {
+            grid-template-columns: 1fr;
+        }
+        .componente-cuerpo.full .panel-explicacion {
+            border-right: none;
+            border-bottom: 1px solid var(--gris-medio);
+        }
+
+        /* =============================================
+           DEMOS EN VIVO
+        ============================================= */
+
+        /* Demo: Paleta de colores */
+        .paleta { display: flex; gap: 12px; flex-wrap: wrap; }
+        .color-chip {
+            width: 80px;
+            text-align: center;
+        }
+        .color-muestra {
+            height: 60px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .color-nombre { font-family: 'Fira Code', monospace; font-size: 11px; color: #666; }
+
+        /* Demo: Tipografía */
+        .tipo-demo { display: flex; flex-direction: column; gap: 10px; }
+        .tipo-h1 { font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 900; color: var(--fucsia); }
+        .tipo-h2 { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 700; color: #333; }
+        .tipo-h3 { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 600; color: #555; }
+        .tipo-body { font-family: 'Open Sans', sans-serif; font-size: 16px; color: #666; }
+        .tipo-label { font-family: 'Open Sans', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-top: 4px; }
+
+        /* Demo: Iconos SVG */
+        .iconos-demo { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+        .icono-item { text-align: center; }
+        .icono-item svg { display: block; margin: 0 auto 6px; }
+        .icono-item span { font-size: 11px; color: #888; font-family: 'Fira Code', monospace; }
+
+        /* Demo: Botones */
+        .botones-demo { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+        .btn-demo-primary {
+            background: #E0994E; color: white; border: none;
+            padding: 12px 28px; border-radius: 25px;
+            font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
+            cursor: pointer; transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .btn-demo-primary:hover { background: #c8843e; transform: translateY(-2px); }
+        .btn-demo-secondary {
+            background: transparent; color: #E0994E; border: 2px solid #E0994E;
+            padding: 10px 26px; border-radius: 25px;
+            font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
+            cursor: pointer; transition: all 0.3s;
+        }
+        .btn-demo-secondary:hover { background: #E0994E; color: white; }
+        .btn-demo-fucsia {
+            background: #97336F; color: white; border: none;
+            padding: 10px 22px; border-radius: 25px;
+            font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px;
+            cursor: pointer; transition: all 0.3s;
+        }
+        .btn-demo-fucsia:hover { background: #7a2a5c; transform: translateY(-2px); }
+
+        /* Demo: Hamburguesa */
+        .hamburger-demo-btn {
+            background: #0d0d0d; border: none; padding: 12px; cursor: pointer;
+            border-radius: 6px; display: flex; flex-direction: column; gap: 5px;
+        }
+        .hline {
+            width: 26px; height: 3px; background: white; border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .hamburger-demo-btn.abierto .hline:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger-demo-btn.abierto .hline:nth-child(2) { opacity: 0; }
+        .hamburger-demo-btn.abierto .hline:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+        .hstate { font-size: 13px; color: #666; margin-left: 12px; }
+
+        /* Demo: Carrusel */
+        .carrusel-demo-wrapper {
+            overflow: hidden;
+            border-radius: 6px;
+            background: #f0f0f0;
+            position: relative;
+        }
+        .carrusel-demo-track {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            transition: transform 0.5s ease;
+        }
+        .carrusel-demo-item {
+            min-width: 100px;
+            height: 80px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+        .carrusel-demo-btns { display: flex; gap: 10px; margin-top: 12px; }
+        .carrusel-demo-btn {
+            background: #97336F; color: white; border: none;
+            padding: 8px 18px; border-radius: 4px; cursor: pointer;
+            font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px;
+        }
+
+        /* Demo: Formulario */
+        .form-demo { max-width: 400px; }
+        .form-demo input, .form-demo textarea {
+            width: 100%; padding: 10px 14px; border: 2px solid #ddd; border-radius: 6px;
+            font-family: 'Open Sans', sans-serif; font-size: 14px; margin-bottom: 10px;
+            transition: border-color 0.3s; outline: none;
+        }
+        .form-demo input:focus, .form-demo textarea:focus { border-color: #97336F; }
+        .form-demo input.error { border-color: #f44336; }
+        .form-demo input.ok { border-color: #4caf50; }
+        .form-demo label { font-size: 12px; font-weight: 600; color: #666; margin-bottom: 4px; display: block; }
+        .msg-error { color: #f44336; font-size: 12px; margin-top: -8px; margin-bottom: 10px; display: none; }
+        .msg-ok { color: #4caf50; font-size: 12px; margin-top: 8px; display: none; }
+
+        /* Demo: Estrellas */
+        .estrellas-demo { display: flex; gap: 4px; cursor: pointer; }
+        .estrella {
+            font-size: 28px; color: #ddd; transition: color 0.2s; cursor: pointer;
+            line-height: 1;
+        }
+        .estrella.activa { color: #E0994E; }
+        .estrella-msg { margin-top: 10px; font-size: 13px; color: #666; font-weight: 600; }
+
+        /* Demo: Filtros */
+        .filtros-demo { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+        .filtro-demo-btn {
+            padding: 7px 18px; border-radius: 20px; border: 2px solid #ddd;
+            background: white; cursor: pointer; font-family: 'Montserrat', sans-serif;
+            font-size: 12px; font-weight: 700; text-transform: uppercase; transition: all 0.3s;
+        }
+        .filtro-demo-btn.activo { background: #97336F; border-color: #97336F; color: white; }
+        .productos-filtro-demo { display: flex; gap: 10px; flex-wrap: wrap; }
+        .prod-chip {
+            padding: 8px 16px; background: #f5f5f5; border-radius: 6px;
+            font-size: 12px; font-weight: 600; border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+        .prod-chip.oculto { display: none; }
+
+        /* Demo: Cart badge */
+        .cart-demo { display: flex; align-items: center; gap: 20px; }
+        .cart-icon-wrap { position: relative; display: inline-flex; }
+        .badge-demo {
+            position: absolute; top: -8px; right: -8px;
+            background: #97336F; color: white; border-radius: 50%;
+            width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 700; font-family: 'Montserrat', sans-serif;
+        }
+        .cart-add-btn {
+            background: #E0994E; color: white; border: none; padding: 8px 18px;
+            border-radius: 20px; font-family: 'Montserrat', sans-serif; font-weight: 700;
+            font-size: 12px; cursor: pointer; transition: all 0.3s;
+        }
+        .cart-add-btn:hover { background: #c8843e; }
+        .cart-notif {
+            background: #25D366; color: white; padding: 8px 16px; border-radius: 6px;
+            font-size: 12px; font-weight: 600; display: none;
+        }
+
+        /* Demo: WhatsApp */
+        .wa-demo {
+            width: 52px; height: 52px; background: #25D366; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(37,211,102,0.4); cursor: pointer;
+            transition: all 0.3s;
+        }
+        .wa-demo:hover { transform: scale(1.1); }
+
+        /* Demo: Schema */
+        .schema-demo {
+            background: #1e1e2e; border-radius: 6px; padding: 16px;
+            font-family: 'Fira Code', monospace; font-size: 12px;
+            color: #cdd6f4; line-height: 1.7; overflow-x: auto;
+        }
+
+        /* =============================================
+           SECCIÓN SEPARADORA
+        ============================================= */
+        .seccion-titulo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 50px 0 24px;
+        }
+        .seccion-titulo h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #97336F;
+            white-space: nowrap;
+        }
+        .seccion-titulo::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, #97336F, transparent);
+        }
+
+        /* =============================================
+           PIE DEL DOCUMENTO
+        ============================================= */
+        .pie {
+            background: var(--gradiente);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+        }
+        .pie h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .pie p { font-size: 13px; opacity: 0.8; }
+
+        /* Carrusel infinito demo */
+        @keyframes scrollInfinito {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        #carruselInfinito:hover {
+            animation-play-state: paused;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .componente-cuerpo { grid-template-columns: 1fr; }
+            .panel-explicacion { border-right: none; border-bottom: 1px solid var(--gris-medio); }
+            .indice-lista { grid-template-columns: 1fr; }
+            .portada-meta { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- =============================================
+     PORTADA
+============================================= -->
+<div class="portada">
+    <div class="portada-logo">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+        </svg>
+    </div>
+    <h1>Codificación de Elementos y Componentes<br>Gráficos e Interactivos</h1>
+    <h2>Producto Multimedia — VitalityHealth Nutrición</h2>
+    <div class="portada-meta">
+        <div class="portada-meta-item">
+            <div class="label">Herramienta</div>
+            <div class="value">HTML5 · CSS3 · JavaScript ES6</div>
+        </div>
+        <div class="portada-meta-item">
+            <div class="label">Proyecto</div>
+            <div class="value">Sitio Web E-commerce</div>
+        </div>
+        <div class="portada-meta-item">
+            <div class="label">Páginas</div>
+            <div class="value">14 páginas HTML</div>
+        </div>
+        <div class="portada-meta-item">
+            <div class="label">Fecha</div>
+            <div class="value">Marzo 2026</div>
+        </div>
+    </div>
+</div>
+
+<!-- =============================================
+     ÍNDICE
+============================================= -->
+<div class="indice">
+    <h3>Contenido del documento</h3>
+    <ul class="indice-lista">
+        <li><a href="#paleta"><span class="indice-num">01</span> Paleta de Colores</a></li>
+        <li><a href="#tipografia"><span class="indice-num">02</span> Sistema Tipográfico</a></li>
+        <li><a href="#iconografia"><span class="indice-num">03</span> Iconografía SVG</a></li>
+        <li><a href="#hero-banner"><span class="indice-num">04A</span> Hero Banner</a></li>
+        <li><a href="#imagenes-productos"><span class="indice-num">04B</span> Imágenes de Productos</a></li>
+        <li><a href="#botones"><span class="indice-num">04C</span> Botones e Interacción</a></li>
+        <li><a href="#hamburguesa"><span class="indice-num">05</span> Menú Hamburguesa</a></li>
+        <li><a href="#carrusel"><span class="indice-num">06</span> Carrusel de Productos</a></li>
+        <li><a href="#formulario"><span class="indice-num">07</span> Formularios Validados</a></li>
+        <li><a href="#estrellas"><span class="indice-num">08</span> Sistema de Calificación</a></li>
+        <li><a href="#filtros"><span class="indice-num">09</span> Filtros de Categoría</a></li>
+        <li><a href="#carrito"><span class="indice-num">10</span> Carrito con localStorage</a></li>
+        <li><a href="#whatsapp"><span class="indice-num">11</span> Botón WhatsApp Flotante</a></li>
+        <li><a href="#seo"><span class="indice-num">12</span> SEO y Schema.org</a></li>
+    </ul>
+</div>
+
+<!-- =============================================
+     CONTENIDO PRINCIPAL
+============================================= -->
+<div class="contenido">
+
+    <!-- SECCIÓN: ELEMENTOS GRÁFICOS -->
+    <div class="seccion-titulo"><h2>Sección 1 — Elementos Gráficos Base</h2></div>
+
+    <!-- 01: PALETA DE COLORES -->
+    <div class="componente" id="paleta">
+        <div class="componente-header">
+            <div class="componente-num">01</div>
+            <div>
+                <div class="componente-titulo">Paleta de Colores Corporativa</div>
+                <div class="componente-subtitulo">Variables CSS personalizadas — Custom Properties</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación</div>
+                <p>La paleta de colores se define mediante <strong>variables CSS</strong> (Custom Properties) en el selector <code>:root</code>. Esto permite reutilizar los colores corporativos en todo el sitio desde un único punto de control.</p>
+                <p><strong>Fucsia (#97336F)</strong>: Color principal de marca. Se usa en títulos H1/H2, categorías, links activos y acentos visuales.</p>
+                <p><strong>Burdeos (#471834)</strong>: Fondo secundario y componente oscuro del gradiente corporativo.</p>
+                <p><strong>Naranja (#E0994E)</strong>: Color de acción. Se aplica en botones CTA, precios y elementos que requieren atención inmediata.</p>
+                <p><strong>Negro (#000000)</strong>: Fondo principal de todas las páginas, aporta contraste y elegancia.</p>
+                <div class="tag-list">
+                    <span class="tag tag-css">CSS Custom Properties</span>
+                    <span class="tag tag-css">:root selector</span>
+                    <span class="tag">Identidad Visual</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>styles.css</span>
+                </div>
+                <pre><span class="c-comentario">/* Variables de color corporativo */</span>
+<span class="c-selector">:root</span> {
+    <span class="c-propiedad">--fucsia</span>:   <span class="c-valor">#97336F</span>;   <span class="c-comentario">/* Marca principal */</span>
+    <span class="c-propiedad">--burdeos</span>:  <span class="c-valor">#471834</span>;   <span class="c-comentario">/* Fondos secundarios */</span>
+    <span class="c-propiedad">--naranja</span>:  <span class="c-valor">#E0994E</span>;   <span class="c-comentario">/* Botones y CTAs */</span>
+    <span class="c-propiedad">--negro</span>:    <span class="c-valor">#000000</span>;   <span class="c-comentario">/* Fondos */</span>
+    <span class="c-propiedad">--blanco</span>:   <span class="c-valor">#FFFFFF</span>;   <span class="c-comentario">/* Texto sobre oscuros */</span>
+
+    <span class="c-comentario">/* Gradiente corporativo */</span>
+    <span class="c-propiedad">--gradiente</span>: <span class="c-funcion">linear-gradient</span>(
+        <span class="c-numero">160deg</span>,
+        <span class="c-valor">#471834</span> <span class="c-numero">0%</span>,
+        <span class="c-valor">#97336F</span> <span class="c-numero">100%</span>
+    );
+}</pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo en vivo</div>
+            <div class="paleta">
+                <div class="color-chip">
+                    <div class="color-muestra" style="background:#97336F;"></div>
+                    <div class="color-nombre">--fucsia<br>#97336F</div>
+                </div>
+                <div class="color-chip">
+                    <div class="color-muestra" style="background:#471834;"></div>
+                    <div class="color-nombre">--burdeos<br>#471834</div>
+                </div>
+                <div class="color-chip">
+                    <div class="color-muestra" style="background:#E0994E;"></div>
+                    <div class="color-nombre">--naranja<br>#E0994E</div>
+                </div>
+                <div class="color-chip">
+                    <div class="color-muestra" style="background:#000000; border:1px solid #ccc;"></div>
+                    <div class="color-nombre">--negro<br>#000000</div>
+                </div>
+                <div class="color-chip">
+                    <div class="color-muestra" style="background:#FFFFFF; border:1px solid #ccc;"></div>
+                    <div class="color-nombre">--blanco<br>#FFFFFF</div>
+                </div>
+                <div class="color-chip" style="width:120px;">
+                    <div class="color-muestra" style="background:linear-gradient(160deg,#471834,#97336F);"></div>
+                    <div class="color-nombre">--gradiente<br>burdeos→fucsia</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 02: TIPOGRAFÍA -->
+    <div class="componente" id="tipografia">
+        <div class="componente-header">
+            <div class="componente-num">02</div>
+            <div>
+                <div class="componente-titulo">Sistema Tipográfico</div>
+                <div class="componente-subtitulo">Montserrat + Open Sans — Google Fonts — Jerarquía visual</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación</div>
+                <p><strong>Montserrat</strong> se usa para todos los títulos (H1–H3), etiquetas y elementos de navegación. Su estilo geométrico y bold transmite profesionalismo y modernidad.</p>
+                <p><strong>Open Sans</strong> se usa para párrafos, descripciones y textos informativos. Su alta legibilidad la hace ideal para lectura extendida en pantalla.</p>
+                <p>La jerarquía visual establece <strong>H1 a 48px, H2 a 36px, H3 a 28px y body a 16px</strong>, facilitando la lectura para usuarios y lectores de pantalla (accesibilidad WCAG 2.1).</p>
+                <div class="tag-list">
+                    <span class="tag tag-css">Google Fonts</span>
+                    <span class="tag tag-css">font-family</span>
+                    <span class="tag">Accesibilidad</span>
+                    <span class="tag">Jerarquía Visual</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>index.html + styles.css</span>
+                </div>
+                <pre><span class="c-comentario">/* Importación desde Google Fonts (HTML) */</span>
+<span class="c-tag">&lt;link</span> <span class="c-attr">href</span>=<span class="c-attrval">"https://fonts.googleapis.com/css2?
+  family=Montserrat:wght@400;600;700;900
+  &family=Open+Sans:wght@300;400;600;700
+  &display=swap"</span> <span class="c-attr">rel</span>=<span class="c-attrval">"stylesheet"</span><span class="c-tag">&gt;</span>
+
+<span class="c-comentario">/* Asignación tipográfica (CSS) */</span>
+<span class="c-selector">body</span> {
+    <span class="c-propiedad">font-family</span>: <span class="c-string">'Open Sans'</span>, sans-serif;
+    <span class="c-propiedad">font-size</span>: <span class="c-numero">16px</span>;
+}
+<span class="c-selector">h1, h2, h3, h4, h5, h6</span> {
+    <span class="c-propiedad">font-family</span>: <span class="c-string">'Montserrat'</span>, sans-serif;
+}
+<span class="c-selector">h1</span> { <span class="c-propiedad">font-size</span>: <span class="c-numero">48px</span>; }
+<span class="c-selector">h2</span> { <span class="c-propiedad">font-size</span>: <span class="c-numero">36px</span>; }
+<span class="c-selector">h3</span> { <span class="c-propiedad">font-size</span>: <span class="c-numero">28px</span>; }</pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo en vivo</div>
+            <div class="tipo-demo">
+                <div>
+                    <div class="tipo-h1">VitalityHealth Nutrición</div>
+                    <div class="tipo-label">H1 — Montserrat 900 · 48px · color: --fucsia</div>
+                </div>
+                <div>
+                    <div class="tipo-h2">Productos Destacados</div>
+                    <div class="tipo-label">H2 — Montserrat 700 · 36px</div>
+                </div>
+                <div>
+                    <div class="tipo-h3">Melena de León</div>
+                    <div class="tipo-label">H3 — Montserrat 600 · 28px</div>
+                </div>
+                <div>
+                    <div class="tipo-body">Suplementos nutricionales de la más alta calidad para potenciar tu bienestar. Fórmulas desarrolladas por expertos en nutrición.</div>
+                    <div class="tipo-label">Body — Open Sans 400 · 16px · line-height: 1.6</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 03: ICONOGRAFÍA SVG -->
+    <div class="componente" id="iconografia">
+        <div class="componente-header">
+            <div class="componente-num">03</div>
+            <div>
+                <div class="componente-titulo">Iconografía SVG</div>
+                <div class="componente-subtitulo">Gráficos vectoriales escalables — Accesibilidad con aria-label</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación</div>
+                <p>Todos los iconos del sitio están codificados en formato <strong>SVG inline</strong> (Scalable Vector Graphics). A diferencia de imágenes PNG o JPG, los SVG:</p>
+                <p>— Se escalan sin perder calidad a cualquier resolución<br>
+                — Pueden ser coloreados con CSS usando <code>fill</code> y <code>stroke</code><br>
+                — Son accesibles con <code>aria-label</code> para lectores de pantalla<br>
+                — No requieren peticiones HTTP adicionales al ser inline</p>
+                <p>Se implementaron iconos para: búsqueda, usuario, corazón, carrito, redes sociales y secciones de beneficios.</p>
+                <div class="tag-list">
+                    <span class="tag tag-html">SVG inline</span>
+                    <span class="tag tag-css">fill / stroke</span>
+                    <span class="tag">aria-label</span>
+                    <span class="tag">Scalable</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>HTML — SVG inline</span>
+                </div>
+                <pre><span class="c-comentario">&lt;!-- Icono de búsqueda con accesibilidad --&gt;</span>
+<span class="c-tag">&lt;button</span> <span class="c-attr">class</span>=<span class="c-attrval">"search-btn"</span>
+        <span class="c-attr">aria-label</span>=<span class="c-attrval">"Buscar productos"</span><span class="c-tag">&gt;</span>
+    <span class="c-tag">&lt;svg</span> <span class="c-attr">width</span>=<span class="c-attrval">"20"</span> <span class="c-attr">height</span>=<span class="c-attrval">"20"</span>
+         <span class="c-attr">viewBox</span>=<span class="c-attrval">"0 0 24 24"</span>
+         <span class="c-attr">fill</span>=<span class="c-attrval">"none"</span>
+         <span class="c-attr">stroke</span>=<span class="c-attrval">"currentColor"</span><span class="c-tag">&gt;</span>
+        <span class="c-tag">&lt;circle</span> <span class="c-attr">cx</span>=<span class="c-attrval">"11"</span> <span class="c-attr">cy</span>=<span class="c-attrval">"11"</span> <span class="c-attr">r</span>=<span class="c-attrval">"8"</span><span class="c-tag">/&gt;</span>
+        <span class="c-tag">&lt;path</span> <span class="c-attr">d</span>=<span class="c-attrval">"m21 21-4.35-4.35"</span><span class="c-tag">/&gt;</span>
+    <span class="c-tag">&lt;/svg&gt;</span>
+<span class="c-tag">&lt;/button&gt;</span>
+
+<span class="c-comentario">/* CSS — color del icono hereda del texto */</span>
+<span class="c-selector">.search-btn</span> {
+    <span class="c-propiedad">color</span>: <span class="c-valor">var(--blanco)</span>;
+    <span class="c-propiedad">transition</span>: <span class="c-valor">color 0.3s</span>;
+}
+<span class="c-selector">.search-btn:hover</span> {
+    <span class="c-propiedad">color</span>: <span class="c-valor">var(--fucsia)</span>;
+}</pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo en vivo — Todos los iconos del header</div>
+            <div class="iconos-demo">
+                <div class="icono-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#97336F" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <span>búsqueda</span>
+                </div>
+                <div class="icono-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#97336F" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span>favoritos</span>
+                </div>
+                <div class="icono-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#97336F" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span>usuario</span>
+                </div>
+                <div class="icono-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#97336F" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    <span>carrito</span>
+                </div>
+                <div class="icono-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#97336F"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <span>facebook</span>
+                </div>
+                <div class="icono-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#97336F"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <span>instagram</span>
+                </div>
+                <div class="icono-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#97336F"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    <span>youtube</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 04: BOTONES -->
+    <div class="componente" id="botones">
+        <div class="componente-header">
+            <div class="componente-num">04</div>
+            <div>
+                <div class="componente-titulo">Botones e Interacción — Efecto Hover y Ripple</div>
+                <div class="componente-subtitulo">Retroalimentación visual inmediata al usuario</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación</div>
+                <p>El sitio tiene tres variantes de botón según su jerarquía de acción:</p>
+                <p><strong>Primario (naranja)</strong>: Para acciones principales como "Comprar Ahora" o "Suscribirme". Usa <code>background: var(--naranja)</code> y borde redondeado.</p>
+                <p><strong>Secundario (borde)</strong>: Para acciones alternativas como "Asesoría". Usa borde visible con fondo transparente.</p>
+                <p><strong>Fucsia</strong>: Para acciones de carrito y elementos de marca.</p>
+                <p>Todos los botones tienen <strong>efecto ripple</strong> codificado en JavaScript: al hacer clic se crea dinámicamente un elemento <code>&lt;span&gt;</code> con animación de onda que se elimina automáticamente.</p>
+                <div class="tag-list">
+                    <span class="tag tag-css">transition</span>
+                    <span class="tag tag-css">transform</span>
+                    <span class="tag tag-js">Efecto Ripple</span>
+                    <span class="tag tag-js">createElement</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>styles.css + main.js</span>
+                </div>
+                <pre><span class="c-comentario">/* CSS — Botón primario */</span>
+<span class="c-selector">.btn-primary</span> {
+    <span class="c-propiedad">background-color</span>: <span class="c-valor">var(--naranja)</span>;
+    <span class="c-propiedad">color</span>: <span class="c-valor">var(--blanco)</span>;
+    <span class="c-propiedad">padding</span>: <span class="c-numero">14px 36px</span>;
+    <span class="c-propiedad">border-radius</span>: <span class="c-numero">30px</span>;
+    <span class="c-propiedad">transition</span>: <span class="c-valor">all 0.3s</span>;
+    <span class="c-propiedad">position</span>: <span class="c-valor">relative</span>;
+    <span class="c-propiedad">overflow</span>: <span class="c-valor">hidden</span>; <span class="c-comentario">/* Necesario para ripple */</span>
+}
+<span class="c-selector">.btn-primary:hover</span> {
+    <span class="c-propiedad">transform</span>: <span class="c-funcion">translateY</span>(<span class="c-numero">-3px</span>);
+    <span class="c-propiedad">box-shadow</span>: <span class="c-valor">0 8px 20px rgba(0,0,0,0.2)</span>;
+}
+
+<span class="c-comentario">/* JS — Algoritmo efecto ripple */</span>
+<span class="c-selector">btn</span>.<span class="c-funcion">addEventListener</span>(<span class="c-string">'click'</span>, <span class="c-keyword">function</span>(e) {
+    <span class="c-keyword">const</span> ripple = document.<span class="c-funcion">createElement</span>(<span class="c-string">'span'</span>);
+    ripple.className = <span class="c-string">'ripple-effect'</span>;
+    <span class="c-keyword">const</span> rect = <span class="c-keyword">this</span>.<span class="c-funcion">getBoundingClientRect</span>();
+    <span class="c-keyword">const</span> size = <span class="c-funcion">Math.max</span>(rect.width, rect.height);
+    ripple.style.width = ripple.style.height = size + <span class="c-string">'px'</span>;
+    ripple.style.left = (e.clientX - rect.left - size/<span class="c-numero">2</span>) + <span class="c-string">'px'</span>;
+    ripple.style.top  = (e.clientY - rect.top  - size/<span class="c-numero">2</span>) + <span class="c-string">'px'</span>;
+    <span class="c-keyword">this</span>.<span class="c-funcion">appendChild</span>(ripple);
+    <span class="c-funcion">setTimeout</span>(() => ripple.<span class="c-funcion">remove</span>(), <span class="c-numero">600</span>);
+});</pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo en vivo — pasa el cursor o haz clic</div>
+            <div class="botones-demo">
+                <button class="btn-demo-primary">Comprar Ahora</button>
+                <button class="btn-demo-secondary">Asesoría</button>
+                <button class="btn-demo-fucsia">+ Agregar al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 04B: HERO BANNER -->
+    <div class="componente" id="hero-banner">
+        <div class="componente-header">
+            <div class="componente-num">04A</div>
+            <div>
+                <div class="componente-titulo">Hero Banner Principal</div>
+                <div class="componente-subtitulo">Imagen JPG + overlay CSS + contenido superpuesto — Sección de impacto inicial</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación</div>
+                <p>El hero banner es la primera sección que ve el usuario al ingresar al sitio. Está construido con tres capas superpuestas mediante <strong>position: relative / absolute</strong>:</p>
+                <p><strong>Capa 1 — Imagen de fondo:</strong> <code>banner-hero.jpg</code> (1080px) referenciada desde CSS con <code>background-image: url('banner-hero.jpg')</code>. Se usa CSS en lugar de una etiqueta <code>&lt;img&gt;</code> para permitir el control de posición y escalado.</p>
+                <p><strong>Capa 2 — Overlay de gradiente:</strong> Un <code>&lt;div&gt;</code> con <code>position: absolute; inset: 0</code> y fondo en gradiente burdeos→fucsia que oscurece el lado izquierdo dejando visible la imagen a la derecha.</p>
+                <p><strong>Capa 3 — Contenido:</strong> Título H1, subtítulo y botones CTA con <code>position: relative; z-index: 2</code> para quedar encima del overlay.</p>
+                <div class="tag-list">
+                    <span class="tag tag-css">background-image</span>
+                    <span class="tag tag-css">position absolute</span>
+                    <span class="tag tag-css">z-index</span>
+                    <span class="tag tag-css">background-size: cover</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>styles.css — .hero</span>
+                </div>
+                <pre><span class="c-comentario">/* CSS — Sección hero */</span>
+<span class="c-selector">.hero</span> {
+    <span class="c-propiedad">position</span>: <span class="c-valor">relative</span>;
+    <span class="c-propiedad">min-height</span>: <span class="c-numero">580px</span>;
+    <span class="c-propiedad">display</span>: <span class="c-valor">flex</span>;
+    <span class="c-propiedad">align-items</span>: <span class="c-valor">center</span>;
+    <span class="c-comentario">/* Imagen de fondo */</span>
+    <span class="c-propiedad">background-image</span>: <span class="c-funcion">url</span>(<span class="c-string">'banner-hero.jpg'</span>);
+    <span class="c-propiedad">background-size</span>: <span class="c-valor">cover</span>;
+    <span class="c-propiedad">background-position</span>: <span class="c-valor">center center</span>;
+}
+
+<span class="c-comentario">/* Overlay — gradiente izquierdo */</span>
+<span class="c-selector">.hero::before</span> {
+    <span class="c-propiedad">content</span>: <span class="c-string">''</span>;
+    <span class="c-propiedad">position</span>: <span class="c-valor">absolute</span>;
+    <span class="c-propiedad">inset</span>: <span class="c-numero">0</span>;
+    <span class="c-propiedad">background</span>: <span class="c-funcion">linear-gradient</span>(
+        to right,
+        <span class="c-valor">rgba(71,24,52,0.92)</span> <span class="c-numero">0%</span>,
+        <span class="c-valor">rgba(71,24,52,0.6)</span>  <span class="c-numero">55%</span>,
+        <span class="c-valor">transparent</span>          <span class="c-numero">100%</span>
+    );
+    <span class="c-propiedad">z-index</span>: <span class="c-numero">1</span>;
+}
+
+<span class="c-comentario">/* Contenido encima del overlay */</span>
+<span class="c-selector">.hero-content</span> {
+    <span class="c-propiedad">position</span>: <span class="c-valor">relative</span>;
+    <span class="c-propiedad">z-index</span>: <span class="c-numero">2</span>;
+    <span class="c-propiedad">max-width</span>: <span class="c-numero">520px</span>;
+}</pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo en vivo — Hero banner con imagen y overlay</div>
+            <div style="position:relative; min-height:320px; background-image:url('banner-hero.jpg');
+                        background-size:cover; background-position:center; border-radius:8px; overflow:hidden;
+                        display:flex; align-items:center;">
+                <!-- Overlay -->
+                <div style="position:absolute; inset:0;
+                            background:linear-gradient(to right,rgba(71,24,52,0.92) 0%,rgba(71,24,52,0.6) 55%,transparent 100%);
+                            z-index:1;"></div>
+                <!-- Contenido -->
+                <div style="position:relative; z-index:2; padding:40px 48px; max-width:480px;">
+                    <h1 style="font-family:'Montserrat',sans-serif; font-size:42px; font-weight:900;
+                                color:white; text-transform:uppercase; line-height:1.1; margin-bottom:16px;">
+                        TU SALUD ES<br>NUESTRA<br>PRIORIDAD
+                    </h1>
+                    <p style="font-family:'Open Sans',sans-serif; font-size:15px; color:rgba(255,255,255,0.85);
+                               line-height:1.6; margin-bottom:24px;">
+                        Suplementos nutricionales de la más alta calidad para potenciar tu bienestar.
+                    </p>
+                    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                        <button class="btn-demo-primary">Comprar Ahora</button>
+                        <button class="btn-demo-secondary">Asesoría</button>
+                    </div>
+                </div>
+            </div>
+            <p style="font-size:12px; color:#888; margin-top:8px;">
+                * Si no se ve la imagen de fondo, asegúrate de abrir este archivo desde la misma carpeta que <code>banner-hero.jpg</code>
+            </p>
+        </div>
+    </div>
+
+    <!-- 04B: IMÁGENES DE PRODUCTOS -->
+    <div class="componente" id="imagenes-productos">
+        <div class="componente-header">
+            <div class="componente-num">04B</div>
+            <div>
+                <div class="componente-titulo">Fotografías de Productos</div>
+                <div class="componente-subtitulo">Imágenes PNG con fondo transparente — Tarjetas de producto con hover</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación</div>
+                <p>Las imágenes de producto están en formato <strong>PNG con fondo transparente</strong>, lo que permite integrarlas sobre cualquier fondo oscuro o claro sin bordes visibles.</p>
+                <p>Cada imagen se muestra dentro de una tarjeta (<code>.producto-card</code>) que incluye:</p>
+                <p>— <strong>Contenedor imagen</strong>: <code>aspect-ratio</code> fijo para que todas las fotos ocupen el mismo espacio sin distorsión<br>
+                — <strong>object-fit: contain</strong>: la imagen se ajusta al contenedor sin recortarse<br>
+                — <strong>Efecto hover</strong>: <code>transform: scale(1.05)</code> con <code>transition</code> suave al pasar el cursor<br>
+                — <strong>Alt text</strong>: atributo descriptivo en cada imagen para accesibilidad y SEO</p>
+                <p>Los 5 productos del sitio son: Aguaje Fenogreco, Magnesio 7, Melena de León, Resveratrol y Cúrcuma.</p>
+                <div class="tag-list">
+                    <span class="tag tag-html">PNG transparente</span>
+                    <span class="tag tag-css">object-fit: contain</span>
+                    <span class="tag tag-css">transform scale</span>
+                    <span class="tag">alt text SEO</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>HTML + CSS — Tarjeta de producto</span>
+                </div>
+                <pre><span class="c-comentario">&lt;!-- HTML: tarjeta con imagen --&gt;</span>
+<span class="c-tag">&lt;div</span> <span class="c-attr">class</span>=<span class="c-attrval">"producto-card"</span>
+     <span class="c-attr">data-product-id</span>=<span class="c-attrval">"aguaje"</span>
+     <span class="c-attr">data-price</span>=<span class="c-attrval">"92900"</span><span class="c-tag">&gt;</span>
+    <span class="c-tag">&lt;div</span> <span class="c-attr">class</span>=<span class="c-attrval">"producto-image"</span><span class="c-tag">&gt;</span>
+        <span class="c-tag">&lt;img</span>
+            <span class="c-attr">src</span>=<span class="c-attrval">"producto-aguaje.png"</span>
+            <span class="c-attr">alt</span>=<span class="c-attrval">"Aguaje Fenogreco - Suplemento
+                 hormonal natural"</span>
+            <span class="c-attr">loading</span>=<span class="c-attrval">"lazy"</span><span class="c-tag">&gt;</span>
+    <span class="c-tag">&lt;/div&gt;</span>
+    <span class="c-tag">&lt;h3</span> <span class="c-attr">class</span>=<span class="c-attrval">"producto-nombre"</span><span class="c-tag">&gt;</span>
+        AGUAJE FENOGRECO
+    <span class="c-tag">&lt;/h3&gt;</span>
+    <span class="c-tag">&lt;p</span> <span class="c-attr">class</span>=<span class="c-attrval">"producto-precio"</span><span class="c-tag">&gt;</span>
+        $92.900 COP
+    <span class="c-tag">&lt;/p&gt;</span>
+<span class="c-tag">&lt;/div&gt;</span>
+
+<span class="c-comentario">/* CSS — Imagen con hover */</span>
+<span class="c-selector">.producto-image img</span> {
+    <span class="c-propiedad">width</span>: <span class="c-numero">100%</span>;
+    <span class="c-propiedad">object-fit</span>: <span class="c-valor">contain</span>;
+    <span class="c-propiedad">transition</span>: <span class="c-valor">transform 0.4s ease</span>;
+}
+<span class="c-selector">.producto-card:hover img</span> {
+    <span class="c-propiedad">transform</span>: <span class="c-funcion">scale</span>(<span class="c-numero">1.05</span>);
+}</pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo en vivo — Galería de los 5 productos (pasa el cursor sobre cada imagen)</div>
+            <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px;">
+
+                <!-- Aguaje -->
+                <div style="background:#111; border-radius:8px; overflow:hidden; text-align:center; padding:16px 12px; transition:transform 0.3s;"
+                     onmouseenter="this.style.transform='translateY(-6px)'"
+                     onmouseleave="this.style.transform='translateY(0)'">
+                    <div style="height:140px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                        <img src="producto-aguaje.png" alt="Aguaje Fenogreco"
+                             style="max-height:130px; max-width:100%; object-fit:contain; transition:transform 0.4s;"
+                             onmouseenter="this.style.transform='scale(1.1)'"
+                             onmouseleave="this.style.transform='scale(1)'">
+                    </div>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700;
+                               color:white; margin-top:12px; text-transform:uppercase;">Aguaje Fenogreco</p>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:12px;
+                               color:#E0994E; font-weight:700; margin-top:4px;">$92.900</p>
+                </div>
+
+                <!-- Magnesio -->
+                <div style="background:#111; border-radius:8px; overflow:hidden; text-align:center; padding:16px 12px; transition:transform 0.3s;"
+                     onmouseenter="this.style.transform='translateY(-6px)'"
+                     onmouseleave="this.style.transform='translateY(0)'">
+                    <div style="height:140px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                        <img src="producto-magnesio.png" alt="Magnesio 7"
+                             style="max-height:130px; max-width:100%; object-fit:contain; transition:transform 0.4s;"
+                             onmouseenter="this.style.transform='scale(1.1)'"
+                             onmouseleave="this.style.transform='scale(1)'">
+                    </div>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700;
+                               color:white; margin-top:12px; text-transform:uppercase;">Magnesio 7</p>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:12px;
+                               color:#E0994E; font-weight:700; margin-top:4px;">$85.900</p>
+                </div>
+
+                <!-- Melena -->
+                <div style="background:#111; border-radius:8px; overflow:hidden; text-align:center; padding:16px 12px; transition:transform 0.3s;"
+                     onmouseenter="this.style.transform='translateY(-6px)'"
+                     onmouseleave="this.style.transform='translateY(0)'">
+                    <div style="height:140px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                        <img src="producto-melena.png" alt="Melena de León"
+                             style="max-height:130px; max-width:100%; object-fit:contain; transition:transform 0.4s;"
+                             onmouseenter="this.style.transform='scale(1.1)'"
+                             onmouseleave="this.style.transform='scale(1)'">
+                    </div>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700;
+                               color:white; margin-top:12px; text-transform:uppercase;">Melena de León</p>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:12px;
+                               color:#E0994E; font-weight:700; margin-top:4px;">$95.900</p>
+                </div>
+
+                <!-- Resveratrol -->
+                <div style="background:#111; border-radius:8px; overflow:hidden; text-align:center; padding:16px 12px; transition:transform 0.3s;"
+                     onmouseenter="this.style.transform='translateY(-6px)'"
+                     onmouseleave="this.style.transform='translateY(0)'">
+                    <div style="height:140px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                        <img src="producto-resveratrol.png" alt="Resveratrol"
+                             style="max-height:130px; max-width:100%; object-fit:contain; transition:transform 0.4s;"
+                             onmouseenter="this.style.transform='scale(1.1)'"
+                             onmouseleave="this.style.transform='scale(1)'">
+                    </div>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700;
+                               color:white; margin-top:12px; text-transform:uppercase;">Resveratrol</p>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:12px;
+                               color:#E0994E; font-weight:700; margin-top:4px;">$99.900</p>
+                </div>
+
+                <!-- Cúrcuma -->
+                <div style="background:#111; border-radius:8px; overflow:hidden; text-align:center; padding:16px 12px; transition:transform 0.3s;"
+                     onmouseenter="this.style.transform='translateY(-6px)'"
+                     onmouseleave="this.style.transform='translateY(0)'">
+                    <div style="height:140px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                        <img src="producto-turmeric.png" alt="Cúrcuma Turmeric"
+                             style="max-height:130px; max-width:100%; object-fit:contain; transition:transform 0.4s;"
+                             onmouseenter="this.style.transform='scale(1.1)'"
+                             onmouseleave="this.style.transform='scale(1)'">
+                    </div>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700;
+                               color:white; margin-top:12px; text-transform:uppercase;">Cúrcuma</p>
+                    <p style="font-family:'Montserrat',sans-serif; font-size:12px;
+                               color:#E0994E; font-weight:700; margin-top:4px;">$89.900</p>
+                </div>
+
+            </div>
+
+            <!-- Carrusel infinito de productos -->
+            <div style="margin-top:24px;">
+                <p style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700;
+                           color:#97336F; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">
+                    Variante: Carrusel infinito automático (CSS @keyframes)
+                </p>
+                <div style="overflow:hidden; background:#0d0d0d; border-radius:6px; padding:16px 0;">
+                    <div id="carruselInfinito" style="display:flex; gap:24px; width:max-content;
+                                animation:scrollInfinito 12s linear infinite;">
+                        <img src="producto-aguaje.png"     alt="Aguaje"     style="height:80px; object-fit:contain;">
+                        <img src="producto-magnesio.png"   alt="Magnesio"   style="height:80px; object-fit:contain;">
+                        <img src="producto-melena.png"     alt="Melena"     style="height:80px; object-fit:contain;">
+                        <img src="producto-resveratrol.png" alt="Resveratrol" style="height:80px; object-fit:contain;">
+                        <img src="producto-turmeric.png"   alt="Curcuma"   style="height:80px; object-fit:contain;">
+                        <!-- Duplicados para efecto infinito -->
+                        <img src="producto-aguaje.png"     alt="Aguaje"     style="height:80px; object-fit:contain;">
+                        <img src="producto-magnesio.png"   alt="Magnesio"   style="height:80px; object-fit:contain;">
+                        <img src="producto-melena.png"     alt="Melena"     style="height:80px; object-fit:contain;">
+                        <img src="producto-resveratrol.png" alt="Resveratrol" style="height:80px; object-fit:contain;">
+                        <img src="producto-turmeric.png"   alt="Curcuma"   style="height:80px; object-fit:contain;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN: COMPONENTES INTERACTIVOS -->
+    <div class="seccion-titulo"><h2>Sección 2 — Componentes Interactivos</h2></div>
+
+    <!-- 05: MENÚ HAMBURGUESA -->
+    <div class="componente" id="hamburguesa">
+        <div class="componente-header">
+            <div class="componente-num">05</div>
+            <div>
+                <div class="componente-titulo">Menú Hamburguesa Responsive</div>
+                <div class="componente-subtitulo">Navegación móvil con overlay — CSS + JavaScript</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación del algoritmo</div>
+                <p>El menú hamburguesa se activa en dispositivos con ancho ≤ 768px mediante una <strong>media query CSS</strong>. El botón está oculto en desktop (<code>display: none</code>) y visible en móvil (<code>display: flex</code>).</p>
+                <p><strong>Algoritmo JavaScript:</strong><br>
+                1. Al cargar la página, el JS verifica si el botón existe en el DOM<br>
+                2. Si no existe, lo crea dinámicamente con <code>createElement</code><br>
+                3. Al hacer clic, alterna las clases <code>.nav-open</code> (en el nav) y <code>.active</code> (en el botón)<br>
+                4. Se crea un overlay oscuro semitransparente detrás del menú<br>
+                5. El menú se cierra con: clic en overlay, clic en enlace, o tecla Escape</p>
+                <p>Las 3 líneas del botón se transforman en una <strong>X animada</strong> con rotaciones CSS.</p>
+                <div class="tag-list">
+                    <span class="tag tag-css">@media query</span>
+                    <span class="tag tag-css">position: fixed</span>
+                    <span class="tag tag-js">classList.toggle</span>
+                    <span class="tag tag-js">keydown Escape</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>styles.css + main.js</span>
+                </div>
+                <pre><span class="c-comentario">/* CSS — Mobile nav */</span>
+<span class="c-selector">@media (max-width: 768px)</span> {
+    <span class="c-selector">.hamburger-btn</span> { <span class="c-propiedad">display</span>: <span class="c-valor">flex</span>; }
+
+    <span class="c-selector">.main-nav</span> {
+        <span class="c-propiedad">position</span>: <span class="c-valor">fixed</span>;
+        <span class="c-propiedad">right</span>: <span class="c-numero">-100%</span>; <span class="c-comentario">/* Oculto fuera de pantalla */</span>
+        <span class="c-propiedad">width</span>: <span class="c-numero">280px</span>;
+        <span class="c-propiedad">height</span>: <span class="c-numero">100vh</span>;
+        <span class="c-propiedad">transition</span>: <span class="c-valor">right 0.3s ease</span>;
+    }
+    <span class="c-selector">.main-nav.nav-open</span> { <span class="c-propiedad">right</span>: <span class="c-numero">0</span>; }
+}
+
+<span class="c-comentario">/* JS — Funciones abrir/cerrar */</span>
+<span class="c-keyword">function</span> <span class="c-funcion">openMenu</span>() {
+    mainNav.<span class="c-funcion">classList.add</span>(<span class="c-string">'nav-open'</span>);
+    hamburgerBtn.<span class="c-funcion">classList.add</span>(<span class="c-string">'active'</span>);
+    overlay.<span class="c-funcion">classList.add</span>(<span class="c-string">'active'</span>);
+    document.body.style.overflow = <span class="c-string">'hidden'</span>;
+}
+<span class="c-keyword">function</span> <span class="c-funcion">closeMenu</span>() {
+    mainNav.<span class="c-funcion">classList.remove</span>(<span class="c-string">'nav-open'</span>);
+    hamburgerBtn.<span class="c-funcion">classList.remove</span>(<span class="c-string">'active'</span>);
+    overlay.<span class="c-funcion">classList.remove</span>(<span class="c-string">'active'</span>);
+    document.body.style.overflow = <span class="c-string">''</span>;
+}
+<span class="c-comentario">/* Cerrar con Escape */</span>
+document.<span class="c-funcion">addEventListener</span>(<span class="c-string">'keydown'</span>, e => {
+    <span class="c-keyword">if</span> (e.key === <span class="c-string">'Escape'</span> && isMenuOpen) <span class="c-funcion">closeMenu</span>();
+});</pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo en vivo — haz clic en el botón</div>
+            <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+                <button class="hamburger-demo-btn" id="hambDemo" onclick="toggleHamb()">
+                    <div class="hline"></div>
+                    <div class="hline"></div>
+                    <div class="hline"></div>
+                </button>
+                <span class="hstate" id="hambState">Estado: <strong>Cerrado</strong> — El menú está oculto (right: -100%)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 06: CARRUSEL -->
+    <div class="componente" id="carrusel">
+        <div class="componente-header">
+            <div class="componente-num">06</div>
+            <div>
+                <div class="componente-titulo">Carrusel de Productos</div>
+                <div class="componente-subtitulo">Navegación manual y auto-scroll — transform translateX</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación del algoritmo</div>
+                <p>El carrusel usa <strong>CSS transform: translateX()</strong> para desplazar las tarjetas sin reordenar el DOM. El contenedor padre tiene <code>overflow: hidden</code> para ocultar lo que está fuera de vista.</p>
+                <p><strong>Algoritmo:</strong><br>
+                1. Se calcula el ancho de cada tarjeta + el gap entre ellas<br>
+                2. Al avanzar: <code>offset = -(index × (cardWidth + gap))</code><br>
+                3. El índice cicla de 0 al total de slides con operador módulo <code>%</code><br>
+                4. Auto-play: <code>setInterval</code> avanza cada 5 segundos<br>
+                5. Se pausa con <code>mouseenter</code> y se reanuda con <code>mouseleave</code></p>
+                <p>El carrusel de selección premium usa <strong>animación CSS infinita</strong> (<code>@keyframes</code>) sin JS para máximo rendimiento.</p>
+                <div class="tag-list">
+                    <span class="tag tag-css">transform translateX</span>
+                    <span class="tag tag-css">overflow hidden</span>
+                    <span class="tag tag-js">setInterval</span>
+                    <span class="tag tag-js">módulo %</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>main.js</span>
+                </div>
+                <pre><span class="c-keyword">let</span> currentIndex = <span class="c-numero">0</span>;
+<span class="c-keyword">const</span> cardsPerView = <span class="c-numero">3</span>;
+<span class="c-keyword">const</span> totalSlides = <span class="c-funcion">Math.ceil</span>(cards.length / cardsPerView);
+
+<span class="c-keyword">function</span> <span class="c-funcion">updateSlider</span>() {
+    <span class="c-keyword">const</span> cardWidth = cards[<span class="c-numero">0</span>].offsetWidth;
+    <span class="c-keyword">const</span> gap = <span class="c-numero">30</span>;
+    <span class="c-keyword">const</span> offset = -(currentIndex * cardsPerView
+                    * (cardWidth + gap));
+    grid.style.transform =
+        <span class="c-string">`translateX(<span class="c-numero">${offset}</span>px)`</span>;
+}
+
+<span class="c-keyword">function</span> <span class="c-funcion">nextSlide</span>() {
+    <span class="c-comentario">/* Módulo para ciclar infinitamente */</span>
+    currentIndex = (currentIndex + <span class="c-numero">1</span>) % totalSlides;
+    <span class="c-funcion">updateSlider</span>();
+}
+
+<span class="c-comentario">/* Auto-play cada 5 segundos */</span>
+<span class="c-keyword">let</span> autoplay = <span class="c-funcion">setInterval</span>(nextSlide, <span class="c-numero">5000</span>);
+
+<span class="c-comentario">/* Pausar en hover */</span>
+slider.<span class="c-funcion">addEventListener</span>(<span class="c-string">'mouseenter'</span>, () =>
+    <span class="c-funcion">clearInterval</span>(autoplay));
+slider.<span class="c-funcion">addEventListener</span>(<span class="c-string">'mouseleave'</span>, () =>
+    autoplay = <span class="c-funcion">setInterval</span>(nextSlide, <span class="c-numero">5000</span>));</pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo en vivo</div>
+            <div class="carrusel-demo-wrapper">
+                <div class="carrusel-demo-track" id="carruselDemo">
+                    <div class="carrusel-demo-item" style="background:#97336F;">Aguaje Fenogreco</div>
+                    <div class="carrusel-demo-item" style="background:#471834;">Magnesio 7</div>
+                    <div class="carrusel-demo-item" style="background:#E0994E;">Melena de León</div>
+                    <div class="carrusel-demo-item" style="background:#5a1a3a;">Resveratrol</div>
+                    <div class="carrusel-demo-item" style="background:#7a4000;">Cúrcuma</div>
+                </div>
+            </div>
+            <div class="carrusel-demo-btns">
+                <button class="carrusel-demo-btn" onclick="moverCarrusel(-1)">‹ Anterior</button>
+                <button class="carrusel-demo-btn" onclick="moverCarrusel(1)">Siguiente ›</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 07: FORMULARIO VALIDADO -->
+    <div class="componente" id="formulario">
+        <div class="componente-header">
+            <div class="componente-num">07</div>
+            <div>
+                <div class="componente-titulo">Formularios con Validación en Tiempo Real</div>
+                <div class="componente-subtitulo">Regex de email — Mensajes de estado — Accesibilidad</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación del algoritmo</div>
+                <p>Los formularios del sitio (newsletter, contacto, asesoría, registro) usan <strong>validación JavaScript</strong> antes de enviar, con retroalimentación visual inmediata.</p>
+                <p><strong>Algoritmo de validación:</strong><br>
+                1. Se captura el evento <code>click</code> del botón (no el <code>submit</code> del form)<br>
+                2. Se verifica que el campo no esté vacío (<code>email.trim()</code>)<br>
+                3. Se valida el formato con expresión regular: <code>/^[^\s@]+@[^\s@]+\.[^\s@]+$/</code><br>
+                4. Si falla: se añade clase <code>.input-error</code> y se muestra mensaje<br>
+                5. Si pasa: se añade clase <code>.input-success</code> y se simula el envío<br>
+                6. Los mensajes se eliminan automáticamente con <code>setTimeout</code></p>
+                <div class="tag-list">
+                    <span class="tag tag-js">RegExp</span>
+                    <span class="tag tag-js">classList</span>
+                    <span class="tag tag-css">:focus styles</span>
+                    <span class="tag">UX Feedback</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>main.js</span>
+                </div>
+                <pre><span class="c-keyword">const</span> emailRegex =
+    <span class="c-string">/^[^\s@]+@[^\s@]+\.[^\s@]+$/</span>;
+
+submitBtn.<span class="c-funcion">addEventListener</span>(<span class="c-string">'click'</span>, (e) => {
+    e.<span class="c-funcion">preventDefault</span>();
+    <span class="c-keyword">const</span> email = emailInput.value.<span class="c-funcion">trim</span>();
+
+    <span class="c-comentario">/* Limpiar estados anteriores */</span>
+    emailInput.classList.<span class="c-funcion">remove</span>(
+        <span class="c-string">'input-error'</span>, <span class="c-string">'input-success'</span>);
+
+    <span class="c-comentario">/* Validar vacío */</span>
+    <span class="c-keyword">if</span> (!email) {
+        <span class="c-funcion">showError</span>(emailInput,
+            <span class="c-string">'Ingresa tu correo'</span>);
+        <span class="c-keyword">return</span>;
+    }
+    <span class="c-comentario">/* Validar formato */</span>
+    <span class="c-keyword">if</span> (!emailRegex.<span class="c-funcion">test</span>(email)) {
+        <span class="c-funcion">showError</span>(emailInput,
+            <span class="c-string">'Correo no válido'</span>);
+        <span class="c-keyword">return</span>;
+    }
+    <span class="c-comentario">/* Éxito */</span>
+    <span class="c-funcion">showSuccess</span>(emailInput, <span class="c-string">'¡Gracias!'</span>);
+});</pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo en vivo — prueba con un email inválido y uno correcto</div>
+            <div class="form-demo">
+                <label for="demo-email">Correo electrónico</label>
+                <input type="text" id="demo-email" placeholder="tucorreo@ejemplo.com">
+                <div class="msg-error" id="demo-error">Por favor ingresa un correo válido</div>
+                <button class="btn-demo-primary" onclick="validarDemo()" style="margin-top:4px;">Validar</button>
+                <div class="msg-ok" id="demo-ok">¡Correo válido! Suscripción exitosa.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 08: ESTRELLAS -->
+    <div class="componente" id="estrellas">
+        <div class="componente-header">
+            <div class="componente-num">08</div>
+            <div>
+                <div class="componente-titulo">Sistema de Calificación — 5 Estrellas SVG</div>
+                <div class="componente-subtitulo">Rating interactivo con hover y selección</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación del algoritmo</div>
+                <p>Las estrellas de calificación están implementadas con <strong>SVG en color naranja corporativo</strong> en lugar de emojis, garantizando consistencia visual en todos los navegadores.</p>
+                <p><strong>Algoritmo interactivo:</strong><br>
+                1. Cada estrella escucha eventos <code>mouseover</code> y <code>click</code><br>
+                2. Al pasar el cursor: se colorean todas las estrellas hasta la posición actual (efecto hover)<br>
+                3. Al hacer clic: se fija la calificación en esa posición<br>
+                4. Al salir el cursor sin seleccionar: vuelve a la calificación fijada<br>
+                5. Se muestra un mensaje con la valoración elegida</p>
+                <p>En los testimonios, las estrellas tienen atributo <code>role="img"</code> y <code>aria-label</code> para accesibilidad.</p>
+                <div class="tag-list">
+                    <span class="tag tag-js">mouseover</span>
+                    <span class="tag tag-js">click event</span>
+                    <span class="tag tag-html">SVG fill</span>
+                    <span class="tag">ARIA role="img"</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>JavaScript — Rating interactivo</span>
+                </div>
+                <pre><span class="c-keyword">const</span> estrellas = document
+    .<span class="c-funcion">querySelectorAll</span>(<span class="c-string">'.estrella'</span>);
+<span class="c-keyword">let</span> calificacion = <span class="c-numero">0</span>;
+
+estrellas.<span class="c-funcion">forEach</span>((star, index) => {
+
+    star.<span class="c-funcion">addEventListener</span>(<span class="c-string">'mouseover'</span>, () => {
+        <span class="c-funcion">colorear</span>(index + <span class="c-numero">1</span>);
+    });
+
+    star.<span class="c-funcion">addEventListener</span>(<span class="c-string">'mouseleave'</span>, () => {
+        <span class="c-funcion">colorear</span>(calificacion);
+    });
+
+    star.<span class="c-funcion">addEventListener</span>(<span class="c-string">'click'</span>, () => {
+        calificacion = index + <span class="c-numero">1</span>;
+        <span class="c-funcion">mostrarMensaje</span>(calificacion);
+    });
+});
+
+<span class="c-keyword">function</span> <span class="c-funcion">colorear</span>(n) {
+    estrellas.<span class="c-funcion">forEach</span>((s, i) => {
+        s.style.color = i < n
+            ? <span class="c-string">'#E0994E'</span>
+            : <span class="c-string">'#ddd'</span>;
+    });
+}</pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo en vivo — haz clic para calificar</div>
+            <div class="estrellas-demo" id="estrellasDemo">
+                <span class="estrella" data-val="1">★</span>
+                <span class="estrella" data-val="2">★</span>
+                <span class="estrella" data-val="3">★</span>
+                <span class="estrella" data-val="4">★</span>
+                <span class="estrella" data-val="5">★</span>
+            </div>
+            <div class="estrella-msg" id="estrellaMsg">Pasa el cursor y haz clic para calificar</div>
+        </div>
+    </div>
+
+    <!-- 09: FILTROS -->
+    <div class="componente" id="filtros">
+        <div class="componente-header">
+            <div class="componente-num">09</div>
+            <div>
+                <div class="componente-titulo">Filtros de Categoría — Tienda</div>
+                <div class="componente-subtitulo">Filtrado dinámico por data attributes sin recargar página</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación del algoritmo</div>
+                <p>Los filtros de la tienda usan <strong>data attributes HTML5</strong> para categorizar cada producto sin necesidad de base de datos ni recarga de página.</p>
+                <p><strong>Algoritmo:</strong><br>
+                1. Cada tarjeta de producto tiene <code>data-categoria="muscular"</code> (o la categoría correspondiente)<br>
+                2. Al hacer clic en un botón de filtro, se lee su <code>data-categoria</code><br>
+                3. Se recorre cada producto: si su categoría coincide → <code>display: block</code>; si no → <code>display: none</code><br>
+                4. La categoría "todos" siempre muestra todo<br>
+                5. El contador de resultados se actualiza en tiempo real</p>
+                <div class="tag-list">
+                    <span class="tag tag-html">data-categoria</span>
+                    <span class="tag tag-js">querySelectorAll</span>
+                    <span class="tag tag-js">dataset</span>
+                    <span class="tag tag-js">display none/block</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>tienda.html — data attribute + JS</span>
+                </div>
+                <pre><span class="c-comentario">&lt;!-- HTML: data-categoria en cada producto --&gt;</span>
+<span class="c-tag">&lt;div</span> <span class="c-attr">class</span>=<span class="c-attrval">"tienda-producto-card"</span>
+     <span class="c-attr">data-product-id</span>=<span class="c-attrval">"melena"</span>
+     <span class="c-attr">data-categoria</span>=<span class="c-attrval">"cognitivo"</span><span class="c-tag">&gt;</span>
+
+<span class="c-comentario">/* JS: algoritmo de filtrado */</span>
+filtros.<span class="c-funcion">forEach</span>(<span class="c-keyword">function</span>(btn) {
+    btn.<span class="c-funcion">addEventListener</span>(<span class="c-string">'click'</span>,
+    <span class="c-keyword">function</span>() {
+        <span class="c-keyword">var</span> cat = <span class="c-keyword">this</span>.dataset.categoria;
+        <span class="c-keyword">var</span> visibles = <span class="c-numero">0</span>;
+
+        productos.<span class="c-funcion">forEach</span>(<span class="c-keyword">function</span>(card) {
+            <span class="c-keyword">if</span> (cat === <span class="c-string">'todos'</span> ||
+                card.dataset.categoria === cat) {
+                card.style.display = <span class="c-string">''</span>;
+                visibles++;
+            } <span class="c-keyword">else</span> {
+                card.style.display = <span class="c-string">'none'</span>;
+            }
+        });
+        contador.textContent =
+            <span class="c-string">'Mostrando '</span> + visibles + <span class="c-string">' resultados'</span>;
+    });
+});</pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo en vivo</div>
+            <div class="filtros-demo">
+                <button class="filtro-demo-btn activo" data-f="todos" onclick="filtrarDemo(this)">Todos</button>
+                <button class="filtro-demo-btn" data-f="cognitivo" onclick="filtrarDemo(this)">Cognitivo</button>
+                <button class="filtro-demo-btn" data-f="muscular" onclick="filtrarDemo(this)">Muscular</button>
+                <button class="filtro-demo-btn" data-f="hormonal" onclick="filtrarDemo(this)">Hormonal</button>
+                <button class="filtro-demo-btn" data-f="antioxidante" onclick="filtrarDemo(this)">Antioxidante</button>
+            </div>
+            <div class="productos-filtro-demo">
+                <div class="prod-chip" data-pcat="cognitivo">🍄 Melena de León</div>
+                <div class="prod-chip" data-pcat="muscular">💊 Magnesio 7</div>
+                <div class="prod-chip" data-pcat="hormonal">🌿 Aguaje Fenogreco</div>
+                <div class="prod-chip" data-pcat="antioxidante">🌱 Cúrcuma</div>
+                <div class="prod-chip" data-pcat="antioxidante">🍇 Resveratrol</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10: CARRITO LOCALSTORAGE -->
+    <div class="componente" id="carrito">
+        <div class="componente-header">
+            <div class="componente-num">10</div>
+            <div>
+                <div class="componente-titulo">Carrito de Compras con localStorage</div>
+                <div class="componente-subtitulo">Clase ShoppingCart — Persistencia de datos — Badge dinámico</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación del algoritmo</div>
+                <p>El carrito está implementado como una <strong>Clase JavaScript (ES6)</strong> llamada <code>ShoppingCart</code>. Usa <strong>localStorage</strong> para persistir los productos entre sesiones y páginas.</p>
+                <p><strong>Métodos principales:</strong><br>
+                — <code>loadCart()</code>: Lee el carrito del localStorage al iniciar<br>
+                — <code>addItem(product)</code>: Agrega o incrementa cantidad si ya existe<br>
+                — <code>saveCart()</code>: Serializa con JSON y guarda en localStorage<br>
+                — <code>updateCartBadge()</code>: Actualiza el contador visual en el header<br>
+                — <code>renderCart()</code>: Genera el HTML del carrito dinámicamente<br>
+                — <code>getTotal()</code>: Calcula subtotal + IVA + envío</p>
+                <p>El badge del carrito se actualiza en <strong>todas las páginas</strong> porque la clase se instancia globalmente.</p>
+                <div class="tag-list">
+                    <span class="tag tag-js">Class ES6</span>
+                    <span class="tag tag-js">localStorage</span>
+                    <span class="tag tag-js">JSON.parse/stringify</span>
+                    <span class="tag tag-js">reduce()</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>main.js — Clase ShoppingCart</span>
+                </div>
+                <pre><span class="c-keyword">class</span> <span class="c-funcion">ShoppingCart</span> {
+    <span class="c-funcion">constructor</span>() {
+        <span class="c-keyword">this</span>.items = <span class="c-keyword">this</span>.<span class="c-funcion">loadCart</span>();
+        <span class="c-keyword">this</span>.<span class="c-funcion">init</span>();
+    }
+
+    <span class="c-funcion">loadCart</span>() {
+        <span class="c-keyword">const</span> saved = localStorage
+            .<span class="c-funcion">getItem</span>(<span class="c-string">'vitalityCart'</span>);
+        <span class="c-keyword">return</span> saved
+            ? <span class="c-funcion">JSON.parse</span>(saved) : [];
+    }
+
+    <span class="c-funcion">addItem</span>(product) {
+        <span class="c-keyword">const</span> exists = <span class="c-keyword">this</span>.items
+            .<span class="c-funcion">find</span>(i => i.id === product.id);
+        <span class="c-keyword">if</span> (exists) {
+            exists.quantity++;
+        } <span class="c-keyword">else</span> {
+            <span class="c-keyword">this</span>.items.<span class="c-funcion">push</span>(product);
+        }
+        <span class="c-keyword">this</span>.<span class="c-funcion">saveCart</span>();
+    }
+
+    <span class="c-funcion">saveCart</span>() {
+        localStorage.<span class="c-funcion">setItem</span>(
+            <span class="c-string">'vitalityCart'</span>,
+            <span class="c-funcion">JSON.stringify</span>(<span class="c-keyword">this</span>.items));
+        <span class="c-keyword">this</span>.<span class="c-funcion">updateCartBadge</span>();
+    }
+
+    <span class="c-funcion">getTotal</span>() {
+        <span class="c-keyword">return</span> <span class="c-keyword">this</span>.items.<span class="c-funcion">reduce</span>(
+            (t, i) => t + i.price * i.quantity, <span class="c-numero">0</span>);
+    }
+}
+<span class="c-keyword">const</span> cart = <span class="c-keyword">new</span> <span class="c-funcion">ShoppingCart</span>();</pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo en vivo — prueba agregar productos</div>
+            <div class="cart-demo">
+                <div class="cart-icon-wrap">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#97336F" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    <div class="badge-demo" id="cartBadgeDemo">0</div>
+                </div>
+                <button class="cart-add-btn" onclick="agregarDemo('Melena de León')">+ Melena de León</button>
+                <button class="cart-add-btn" onclick="agregarDemo('Magnesio 7')">+ Magnesio 7</button>
+                <button class="cart-add-btn" onclick="limpiarDemo()" style="background:#97336F;">Limpiar</button>
+                <div class="cart-notif" id="cartNotif"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11: WHATSAPP -->
+    <div class="componente" id="whatsapp">
+        <div class="componente-header">
+            <div class="componente-num">11</div>
+            <div>
+                <div class="componente-titulo">Botón WhatsApp Flotante</div>
+                <div class="componente-subtitulo">Posición fija — Enlace directo con mensaje predefinido</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación</div>
+                <p>El botón de WhatsApp está posicionado de forma <strong>fija</strong> (<code>position: fixed</code>) en la esquina inferior derecha, visible en todas las páginas sin importar el scroll.</p>
+                <p>Usa el protocolo <strong>wa.me</strong> de WhatsApp Business que permite abrir una conversación directamente con un número y mensaje predefinido:</p>
+                <p><code>https://wa.me/573157488888?text=Hola...</code></p>
+                <p>El JS lo crea dinámicamente si no existe en el HTML, garantizando su presencia en todas las páginas con un solo bloque de código en <code>main.js</code>.</p>
+                <div class="tag-list">
+                    <span class="tag tag-css">position: fixed</span>
+                    <span class="tag tag-js">createElement</span>
+                    <span class="tag">WhatsApp API</span>
+                    <span class="tag">target="_blank"</span>
+                </div>
+            </div>
+            <div class="panel-codigo">
+                <div class="codigo-tab">
+                    <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+                    <span>styles.css + main.js</span>
+                </div>
+                <pre><span class="c-comentario">/* CSS — Posición fija */</span>
+<span class="c-selector">.whatsapp-float</span> {
+    <span class="c-propiedad">position</span>: <span class="c-valor">fixed</span>;
+    <span class="c-propiedad">bottom</span>: <span class="c-numero">25px</span>;
+    <span class="c-propiedad">right</span>: <span class="c-numero">25px</span>;
+    <span class="c-propiedad">z-index</span>: <span class="c-numero">9999</span>;
+    <span class="c-propiedad">width</span>: <span class="c-numero">60px</span>;
+    <span class="c-propiedad">height</span>: <span class="c-numero">60px</span>;
+    <span class="c-propiedad">background-color</span>: <span class="c-valor">#25D366</span>;
+    <span class="c-propiedad">border-radius</span>: <span class="c-numero">50%</span>;
+    <span class="c-propiedad">transition</span>: <span class="c-valor">all 0.3s</span>;
+}
+<span class="c-selector">.whatsapp-float:hover</span> {
+    <span class="c-propiedad">transform</span>: <span class="c-funcion">scale</span>(<span class="c-numero">1.1</span>);
+}
+
+<span class="c-comentario">/* HTML — Enlace con mensaje */</span>
+<span class="c-tag">&lt;a</span> <span class="c-attr">href</span>=<span class="c-attrval">"https://wa.me/573157488888
+    ?text=Hola, estoy interesado"</span>
+   <span class="c-attr">class</span>=<span class="c-attrval">"whatsapp-float"</span>
+   <span class="c-attr">target</span>=<span class="c-attrval">"_blank"</span>
+   <span class="c-attr">rel</span>=<span class="c-attrval">"noopener noreferrer"</span>
+   <span class="c-attr">aria-label</span>=<span class="c-attrval">"Contactar por WhatsApp"</span><span class="c-tag">&gt;</span></pre>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Demo — componente visual (pasa el cursor)</div>
+            <div style="display:flex; align-items:center; gap:20px;">
+                <div class="wa-demo" title="Botón WhatsApp flotante">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                </div>
+                <div>
+                    <p style="font-size:13px; color:#555;"><strong>position: fixed — bottom: 25px — right: 25px</strong></p>
+                    <p style="font-size:12px; color:#888;">Visible en todas las páginas, z-index: 9999, escala al 110% en hover</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 12: SEO -->
+    <div class="componente" id="seo">
+        <div class="componente-header">
+            <div class="componente-num">12</div>
+            <div>
+                <div class="componente-titulo">SEO y Datos Estructurados — Schema.org</div>
+                <div class="componente-subtitulo">Meta tags · Open Graph · JSON-LD · Accesibilidad WCAG 2.1</div>
+            </div>
+        </div>
+        <div class="componente-cuerpo full">
+            <div class="panel-explicacion">
+                <div class="panel-label">Explicación</div>
+                <p>Cada página tiene un bloque completo de SEO codificado en el <code>&lt;head&gt;</code>. Incluye tres capas de optimización:</p>
+                <p><strong>1. Meta tags básicos:</strong> <code>title</code>, <code>description</code> (150-160 chars), <code>keywords</code>, <code>robots: index, follow</code> y <code>canonical</code> para evitar contenido duplicado.</p>
+                <p><strong>2. Open Graph:</strong> Permite que al compartir en redes sociales (Facebook, WhatsApp, LinkedIn) se muestre una vista previa con imagen, título y descripción personalizados.</p>
+                <p><strong>3. Schema.org JSON-LD:</strong> Datos estructurados que los motores de búsqueda leen para entender el contenido. Cada página tiene su tipo específico: <em>Organization</em> (inicio), <em>Product</em> con <em>AggregateRating</em> (productos), <em>ContactPage</em>, <em>Blog</em>, etc.</p>
+                <div class="tag-list">
+                    <span class="tag tag-html">meta tags</span>
+                    <span class="tag tag-html">Open Graph</span>
+                    <span class="tag tag-js">JSON-LD</span>
+                    <span class="tag">Schema.org</span>
+                    <span class="tag">WCAG 2.1</span>
+                </div>
+            </div>
+        </div>
+        <div class="panel-demo">
+            <div class="panel-label">Ejemplo — SEO completo de index.html</div>
+            <div class="schema-demo"><span class="c-comentario">&lt;!-- Meta tags SEO --&gt;</span>
+<span class="c-tag">&lt;title&gt;</span>VitalityHealth | Suplementos de Alta Calidad en Colombia<span class="c-tag">&lt;/title&gt;</span>
+<span class="c-tag">&lt;meta</span> <span class="c-attr">name</span>=<span class="c-attrval">"description"</span> <span class="c-attr">content</span>=<span class="c-attrval">"Suplementos nutricionales premium..."</span><span class="c-tag">&gt;</span>
+<span class="c-tag">&lt;meta</span> <span class="c-attr">name</span>=<span class="c-attrval">"robots"</span> <span class="c-attr">content</span>=<span class="c-attrval">"index, follow"</span><span class="c-tag">&gt;</span>
+<span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-attrval">"canonical"</span> <span class="c-attr">href</span>=<span class="c-attrval">"https://vitalityhealth.co/"</span><span class="c-tag">&gt;</span>
+
+<span class="c-comentario">&lt;!-- Open Graph --&gt;</span>
+<span class="c-tag">&lt;meta</span> <span class="c-attr">property</span>=<span class="c-attrval">"og:type"</span> <span class="c-attr">content</span>=<span class="c-attrval">"website"</span><span class="c-tag">&gt;</span>
+<span class="c-tag">&lt;meta</span> <span class="c-attr">property</span>=<span class="c-attrval">"og:title"</span> <span class="c-attr">content</span>=<span class="c-attrval">"VitalityHealth Nutricion"</span><span class="c-tag">&gt;</span>
+<span class="c-tag">&lt;meta</span> <span class="c-attr">property</span>=<span class="c-attrval">"og:image"</span> <span class="c-attr">content</span>=<span class="c-attrval">"banner-hero.jpg"</span><span class="c-tag">&gt;</span>
+
+<span class="c-comentario">&lt;!-- Schema.org JSON-LD --&gt;</span>
+<span class="c-tag">&lt;script</span> <span class="c-attr">type</span>=<span class="c-attrval">"application/ld+json"</span><span class="c-tag">&gt;</span>
+{
+  <span class="c-string">"@context"</span>: <span class="c-attrval">"https://schema.org"</span>,
+  <span class="c-string">"@type"</span>: <span class="c-attrval">"Organization"</span>,
+  <span class="c-string">"name"</span>: <span class="c-attrval">"VitalityHealth Nutricion"</span>,
+  <span class="c-string">"url"</span>: <span class="c-attrval">"https://vitalityhealth.co/"</span>,
+  <span class="c-string">"contactPoint"</span>: {
+    <span class="c-string">"@type"</span>: <span class="c-attrval">"ContactPoint"</span>,
+    <span class="c-string">"telephone"</span>: <span class="c-attrval">"+57-315-748-8888"</span>
+  }
+}
+<span class="c-tag">&lt;/script&gt;</span></div>
+        </div>
+    </div>
+
+</div><!-- fin contenido -->
+
+<!-- PIE -->
+<div class="pie">
+    <h3>VitalityHealth Nutrición — Documentación Técnica</h3>
+    <p>12 componentes codificados · HTML5 · CSS3 · JavaScript ES6 · Accesibilidad WCAG 2.1</p>
+    <p style="margin-top:8px; font-size:12px; opacity:0.6;">Herramienta de codificación: VS Code · Lenguajes: HTML5, CSS3, JavaScript ES6</p>
+</div>
+
+<!-- =============================================
+     SCRIPTS DE DEMOS EN VIVO
+============================================= -->
+<script>
+    /* Demo hamburguesa */
+    function toggleHamb() {
+        const btn = document.getElementById('hambDemo');
+        const state = document.getElementById('hambState');
+        btn.classList.toggle('abierto');
+        if (btn.classList.contains('abierto')) {
+            state.innerHTML = 'Estado: <strong>Abierto</strong> — nav-open activo, overlay visible, overflow: hidden';
+        } else {
+            state.innerHTML = 'Estado: <strong>Cerrado</strong> — El menú está oculto (right: -100%)';
+        }
+    }
+
+    /* Demo carrusel */
+    let carruselIdx = 0;
+    const items = document.querySelectorAll('#carruselDemo .carrusel-demo-item');
+    function moverCarrusel(dir) {
+        carruselIdx = (carruselIdx + dir + items.length) % items.length;
+        const w = items[0].offsetWidth + 16;
+        document.getElementById('carruselDemo').style.transform = `translateX(-${carruselIdx * w}px)`;
+    }
+
+    /* Demo formulario */
+    function validarDemo() {
+        const input = document.getElementById('demo-email');
+        const errEl = document.getElementById('demo-error');
+        const okEl  = document.getElementById('demo-ok');
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        input.className = '';
+        errEl.style.display = 'none';
+        okEl.style.display  = 'none';
+        if (!input.value.trim()) {
+            input.className = 'error';
+            errEl.textContent = 'El campo no puede estar vacío';
+            errEl.style.display = 'block';
+            return;
+        }
+        if (!regex.test(input.value)) {
+            input.className = 'error';
+            errEl.textContent = 'Formato de correo no válido. Ejemplo: nombre@dominio.com';
+            errEl.style.display = 'block';
+            return;
+        }
+        input.className = 'ok';
+        okEl.style.display = 'block';
+        setTimeout(() => {
+            input.className = '';
+            okEl.style.display = 'none';
+            input.value = '';
+        }, 3000);
+    }
+
+    /* Demo estrellas */
+    let calificacion = 0;
+    const estrellas = document.querySelectorAll('#estrellasDemo .estrella');
+    const mensajes = ['', 'Muy malo', 'Malo', 'Regular', 'Bueno', '¡Excelente!'];
+
+    function colorearEstrellas(n) {
+        estrellas.forEach((s, i) => {
+            s.classList.toggle('activa', i < n);
+        });
+    }
+
+    estrellas.forEach((s, idx) => {
+        s.addEventListener('mouseover', () => colorearEstrellas(idx + 1));
+        s.addEventListener('mouseleave', () => colorearEstrellas(calificacion));
+        s.addEventListener('click', () => {
+            calificacion = idx + 1;
+            document.getElementById('estrellaMsg').textContent =
+                calificacion + '/5 — ' + mensajes[calificacion];
+        });
+    });
+
+    /* Demo filtros */
+    function filtrarDemo(btn) {
+        document.querySelectorAll('.filtro-demo-btn').forEach(b => b.classList.remove('activo'));
+        btn.classList.add('activo');
+        const cat = btn.dataset.f;
+        document.querySelectorAll('.prod-chip').forEach(p => {
+            p.classList.toggle('oculto', cat !== 'todos' && p.dataset.pcat !== cat);
+        });
+    }
+
+    /* Demo carrito */
+    let cartCount = 0;
+    function agregarDemo(nombre) {
+        cartCount++;
+        document.getElementById('cartBadgeDemo').textContent = cartCount;
+        const notif = document.getElementById('cartNotif');
+        notif.textContent = '✓ ' + nombre + ' agregado';
+        notif.style.display = 'block';
+        setTimeout(() => { notif.style.display = 'none'; }, 2000);
+    }
+    function limpiarDemo() {
+        cartCount = 0;
+        document.getElementById('cartBadgeDemo').textContent = '0';
+    }
+</script>
+</body>
+</html>
